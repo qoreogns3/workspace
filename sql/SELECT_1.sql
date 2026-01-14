@@ -1,0 +1,137 @@
+
+-- 이것은 주석입니다
+# 이것은 주석입니다
+
+# 데이터 조회
+# SELECT 조회할컬럼 FROM 테이블명;
+
+# EMP테이블에서 사원들의 사원명을 조회
+SELECT ENAME FROM emp;
+
+#EMP테이블에서 사원들의 사번, 사원명을 조회
+SELECT EMPNO, ENAME FROM emp;
+
+#EMP테이블의 사원들의 모든 정보를 조회
+SELECT * FROM emp;
+
+#데이터 조회 시 무조건 컬럼만 조회할 수 있는건 아니다!
+SELECT EMPNO, JOB, 3, '안녕', 3+3 FROM emp;
+
+#별칭을 사용하여 데이터 조회
+#EMP테이블에서 사번을 조회하되, 'NUMBER'라는 별칭으로 조회
+SELECT EMPNO AS NUMBER FROM emp;
+
+#EMP테이블에서 사원들의 사원명, 급여, 입사일을 조회
+#단, 순서대로 이름, 월급, 입사일이라는 별칭으로 조회
+SELECT ENAME AS 이름, SAL AS 월급, HIREDATE AS 입사일 FROM emp;
+
+#별칭 사용 시 AS 키워드는 생략 가능
+SELECT ENAME 이름 FROM emp;
+
+#조회 시 조건 추가하기
+#사원중에서 급여가 300이상인 사원들의 사번, 사원명, 급여 정보를 조회
+SELECT EMPNO, ENAME, SAL 
+FROM emp 
+WHERE SAL >= 300;
+
+#사원중에서 직급이 대리인 사원의 사번, 직급, 사원명을 조회
+# = 같다,  !=, <> 다르다
+SELECT EMPNO, JOB, ENAME
+FROM emp
+WHERE JOB = '대리'; 
+
+#사원 중에서 급여가 400이상이면서 800이하인 사원들의 모든 정보를 조회
+#그리고 - AND, 이거나 - OR
+SELECT *
+FROM emp
+WHERE SAL >= 400 AND SAL <= 800;
+
+#사원중에서 사번이 1005번 이상 이거나, 직급이 사원이 아닌 직원들의
+#사번, 사원명, 직급, 입사일을 조회
+SELECT EMPNO, ENAME, JOB, HIREDATE
+FROM emp
+WHERE EMPNO >= 1005 OR JOB != '사원';
+
+SELECT * FROM emp;
+# 사원중에서 커미션이 NULL인 직원들의 사원명, 커미션을 조회
+# NULL 체크는 등호 기호 사용하지 않음!
+# 널이다 -> IS NULL, 널이 아니다 -> IS NOT NULL
+SELECT ENAME, COMM
+FROM emp
+WHERE COMM IS NULL;
+
+#1
+SELECT EMPNO, ENAME, SAL, COMM
+FROM emp;
+
+#2
+SELECT EMPNO, ENAME AS NAME, JOB
+FROM emp
+WHERE EMPNO >= 1005;
+
+#3
+SELECT ENAME, JOB, SAL
+FROM emp
+WHERE JOB = '대리' OR JOB = '과장';
+
+#4
+SELECT *
+FROM emp
+WHERE SAL >= 300 AND COMM >= 300;
+
+#5
+SELECT ENAME, JOB, SAL, COMM
+FROM emp
+WHERE SAL <= 900 
+AND COMM IS NOT NULL 
+AND (JOB = '대리' OR JOB = '과장');
+
+# EMP 테이블의 사원중에서 급여가 300이상 700 이하인 사원들의
+# 사번, 사원명, 급여를 조회
+# BETWEEN A AND B : A와 B사이의 값을 조회
+SELECT EMPNO, ENAME, SAL
+FROM emp
+WHERE SAL BETWEEN 300 AND 700;
+
+#EMP테이블에서 급여가 400이거나 600이거나 800인 사원들의
+#모든 정보를 조회
+SELECT *
+FROM emp
+WHERE SAL IN (400, 600, 800);
+
+# 데이터 정렬하기
+# ORDER BY 기준컬럼 정렬방법
+# 오름차순 : ASC(생략가능), 내림차순 : DESC
+# EMP 테이블의 모든 정보를 급여기준 내림차순 정렬
+SELECT *
+FROM emp
+ORDER BY SAL;
+
+# 직급이 사원, 대리, 과장인 사원 중에서 급여가 200에서 700사이인
+# 사원들의 사번, 사원명, 직급, 급여를 조회하되
+# 사원명 기준 오름차순 정렬(사전편찬순)
+SELECT EMPNO, ENAME, JOB, SAL
+FROM emp
+WHERE JOB IN ('사원', '대리', '과장')
+AND SAL BETWEEN 200 AND 700
+ORDER BY ENAME;
+
+#사원들의 사번, 사원명, 부서번호, 급여를 조회한다
+#부서번호 기준 오름차순 정렬 후 급여 기준 내림차순 정렬
+SELECT EMPNO, ENAME, DEPTNO, SAL
+FROM emp
+ORDER BY DEPTNO ASC, SAL DESC;
+
+#LIKE 연산자와 와일드카드
+#와일드카드 : '%', '_'
+#'_' : 정해지지 않은 한 글자
+#'%' : 정해지지 않은 글자, 글자 수 제한은 없음
+#'김__' : 김으로 시작하는 세 글자.
+#'김%' : 김으로 시작하는 모든 글자.
+#'_이%' : 두번째 글자가 '이'인 모든 글자
+#사원명에 '이' 자가 포함된 사원들의 모든 정보 조회
+SELECT *
+FROM emp
+WHERE ENAME LIKE '%이%';
+
+

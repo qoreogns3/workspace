@@ -1,0 +1,22 @@
+.header{
+  background-color: black;
+  /* 100vh : 웹 브라우저의 세로 크기 */
+  height: 15vh;
+  padding: 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu{
+  display: flex;
+  width: 300px;
+  align-items: center;
+  justify-content: space-between;
+}

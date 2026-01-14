@@ -1,0 +1,42 @@
+.container{
+  width: 80%;
+  margin: 10% auto;
+}
+
+.title{
+  text-align: center;
+}
+
+h1{
+  font-size: 60px;
+}
+
+p{
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.img-div{
+  position: relative;
+}
+
+.jpg0{
+  width: 100%;
+  ;
+}
+
+.jpg1{
+  position: absolute;
+  bottom: 4px;
+  left: 5%;
+}
+
+.jpg2{
+  position: absolute;
+  top: 10%;
+  right: 10%
+}
+
+.jpg1, .jpg2{
+  width: 150px;
+}

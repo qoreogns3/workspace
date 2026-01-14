@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+   <style>
+    div{
+      width: 300px;
+      height: 150px;
+      border: 1px solid black;
+      margin: 50px;
+    }
+
+    .div1{
+      /* 기본값 : 영역을 벗어나도 컨텐츠가 보임 */
+      overflow: visible
+    }
+
+    .div2{
+      overflow: hidden;
+    }
+
+    .div3{
+      /* 영역이 충분해도 무조건 scroll 생성 */
+      overflow: scroll;
+    }
+
+    .div4{
+      /* 영역이 부족할 때만 scroll 생성 */
+      overflow: auto;
+    }
+
+    .div5{
+      border: 3px solid red;
+      overflow: hidden;
+    }
+
+   </style>
+</head>
+<body>
+  <h2>overflow : 컨텐츠가 부모태그의 범위를 벗어날때 어떻게 그려줄까?</h2>
+
+  <div class="div1">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis atque quis ipsam molestiae deserunt, modi sit voluptatibus minima eos laborum adipisci reprehenderit eum quisquam consectetur veniam incidunt nemo at illo!
+  </div>
+
+  <div class="div2">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis atque quis ipsam molestiae deserunt, modi sit voluptatibus minima eos laborum adipisci reprehenderit eum quisquam consectetur veniam incidunt nemo at illo!
+  </div>
+
+  <div class="div3">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis atque quis ipsam molestiae deserunt, modi sit voluptatibus minima eos laborum adipisci reprehenderit eum quisquam consectetur veniam incidunt nemo at illo!
+  </div>
+
+  <div class="div4">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis atque quis ipsam molestiae deserunt, modi sit voluptatibus minima eos laborum adipisci reprehenderit eum quisquam consectetur veniam incidunt nemo at illo!
+  </div>
+
+  <div class="div5">
+    <img src="house.jpg">
+  </div>
+</body>
+</html>

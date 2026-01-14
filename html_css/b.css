@@ -1,0 +1,36 @@
+div{
+  border: 3px solid black;
+}
+
+.container{
+  margin: 10% auto;
+  width: 80%;
+  height: 700px;
+}
+
+.head{
+  height: 20%;
+  border-color: red;
+}
+
+.main{
+  display: flex;
+  height: 80%;
+  border-color: orange;
+}
+
+.main1{
+  width: 60%;
+  border-color: yellow;
+}
+
+.main2{
+  display: flex;
+  flex-direction: column;
+  width: 40%;  
+}
+
+.main2 > div{
+  height: 100%;
+  border-color: green;
+}

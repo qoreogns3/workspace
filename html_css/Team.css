@@ -1,0 +1,123 @@
+/* 
+  opacity: 0~1
+  1:완전 선명
+  0:완전 투명 
+
+  background-color: rgba(0, 0, 0, 0)
+  0 ~ 255
+*/
+
+
+
+body{
+  background-color: #778899;
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  background-color: white;
+  width: 180vh;
+  margin: 1% 0px;
+  text-align: center;
+}
+
+.btn{
+  background-color: #ffb6c1;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 15px;
+  margin: 10px 0px;
+}
+
+.title > p:nth-child(2){
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.title > p:nth-child(2) > span{
+  color: #87cefa;
+}
+
+.title > p:nth-child(3){
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.title > p:nth-child(4){
+  font-size: 13px;
+}
+
+.title > p:nth-child(5){
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap: 12px;
+  margin: 12px;
+}
+
+.grid img{
+  width: 100%;
+}
+
+.grid > div{
+  position: relative;
+}
+
+.grid > div > div{
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.grid > div > div:hover{
+  opacity: 1;
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0 ,0.5);
+}
+
+.grid > div > div > p{
+  font-size: 20px;
+  color: white;
+}
+
+.grid > div > div > p:nth-child(1){
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.grid > div > div > p:nth-child(2){
+  margin: 20px 0px;
+}
+
+.icon{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon > span{
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.icon > span:active{
+  color: lightblue;
+}

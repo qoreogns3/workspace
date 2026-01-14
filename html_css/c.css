@@ -1,0 +1,25 @@
+.container{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.head{
+  height: 120px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+
+.title{
+  width: 65%;
+  color: white;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.m{
+  width: 7%;
+  color: white;
+  font-weight: bold;
+}

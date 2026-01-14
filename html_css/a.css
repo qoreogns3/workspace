@@ -1,0 +1,45 @@
+.container{
+  margin: 15% auto;
+  width: 70%;
+  height: 600px;
+}
+
+div{
+  border: 3px solid black;
+}
+.main1{
+  display: flex;
+  height: 10%;
+  border-color: red;
+}
+
+.main1 > div:first-child{
+  width: 60%;
+  border-color: blue;
+}
+
+.main1 > div:last-child{
+  width: 40%;
+  border-color: green;
+}
+
+.main2{
+  display: flex;
+  height: 80%;
+  border-color: orange;
+}
+
+.main2 > div:first-child{
+  width: 20%;
+  border-color: yellow;
+}
+
+.main2 > div:last-child{
+  width: 80%;
+  border-color: brown;
+}
+
+.footer{
+  height: 10%;
+  border-color: aqua;
+}

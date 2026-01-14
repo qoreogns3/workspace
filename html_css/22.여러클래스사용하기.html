@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    .btn{
+      /* */
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .primary{
+      background-color: #360b53; 
+    }
+
+    .error{
+      background-color: crimson 
+    }
+
+    .large{
+      width: 200px;
+    }
+
+    .small{
+      width: 120px;
+    }
+    
+    .btn:hover{
+      cursor: pointer;
+      background-color: #140031;
+    }
+  </style>
+</head>
+<body>
+  <h2>여러 클래스 사용하기</h2>
+
+  <button type="button" class="btn primary small">버튼1</button>
+  <button type="button" class="btn error large">버튼2</button>
+</body>
+</html>

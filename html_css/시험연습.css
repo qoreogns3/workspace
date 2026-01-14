@@ -1,0 +1,77 @@
+
+.container{
+
+  margin: 5% 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+table{
+  border: 1px solid lightgray;
+  width: 100%;
+  font-size: 10px;
+  margin: 15px 0px;
+}
+
+tr{
+  border: 1px solid lightgray;
+}
+
+td{
+  border: 1px solid lightgray;
+}
+
+tr > td:first-child{
+  background-color: #fbfafa;
+  width: 125px;
+  padding: 8px 20px;
+}
+
+tr > td:last-child{
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  gap: 5px;
+}
+
+.title2 span, td span{
+  color: red;
+  font-weight: bold;
+}
+
+.title2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+table input{
+  border: 1px solid lightgray;
+}
+
+.i1{
+  width: 150px;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.column > div{
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.title3{
+  margin-top: 30px;
+}
