@@ -1,0 +1,70 @@
+.container{
+  text-align: center;
+  width: 450px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.d1{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 30px 0px;
+}
+
+.d1 > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.d2 {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.d2 > p{
+  margin-right: 20px;
+}
+.d2 > div{
+  display: flex;
+  gap: 6px;
+}
+
+.d3, .d4, .d5{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+table{
+  text-align: center;
+}
+
+tr, td{
+  border: 1px solid black;
+}
+
+table input{
+  width: 120px;
+}
+
+thead{
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+}
+
+tbody{
+  background-color: gainsboro;
+}
+
+p{
+  font-weight: bold;
+}
+
+.d5 > textarea{
+  border-radius: 7px;
+  border: 1.5px solid black;
+}
