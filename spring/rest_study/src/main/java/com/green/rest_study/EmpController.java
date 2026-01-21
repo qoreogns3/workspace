@@ -46,7 +46,7 @@ public class EmpController {
   }
 
   @DeleteMapping("/{num}")
-  public void deleteEmp(@PathVariable("num") int num){
+  public String deleteEmp(@PathVariable("num") int num){
     System.out.println(num + "번 사원 삭제");
     for (int i = 0; i < empList.size(); i++){
       if (num == empList.get(i).getCompanyNum()){
@@ -54,17 +54,18 @@ public class EmpController {
         break;
       }
     }
+    return "삭제 완료";
   }
 
   @PutMapping("/{num}")
-  public void updateEmp(@RequestBody Emp emp, @PathVariable("num") int num){
+  public String updateEmp(@RequestBody Emp emp, @PathVariable("num") int num){
     System.out.println(num + "번 사원 수정");
     for (Emp emp1 : empList){
       if (emp1.getCompanyNum() == num){
-        emp1.setCompanyNum(emp.getCompanyNum());
         emp1.setSalary((emp.getSalary()));
         emp1.setDptName(emp.getDptName());
       }
     }
+    return "수정 완료";
   }
 }

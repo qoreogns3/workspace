@@ -1,0 +1,31 @@
+table{
+  margin: auto;
+  border-collapse: collapse;
+  width: 500px;
+  text-align: center;
+}
+
+tr, td{
+  border: 2px solid white;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: blanchedalmond;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: burlywood;
+}
+
+table tbody tr{
+  height: 50px;
+}
+
+
+thead{
+  background-color: brown;
+  color: beige;
+  font-weight: bold;
+  height: 35px;
+  font-size: 20px;
+}
