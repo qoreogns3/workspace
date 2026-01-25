@@ -44,6 +44,25 @@
         WHERE BOARD_NUM &gt; #{boardNum} AND READ_CNT &lt; #{readCnt}
     </select>
 
+    <insert id="insertBoard">
+        INSERT INTO BASIC_BOARD (
+            TITLE
+            , WRITER
+            , CONTENT
+        ) VALUES (
+            #{title}
+            , #{writer}
+            , #{content}
+        )
+    </insert>
+
+    <update id="updateBoard">
+        UPDATE BASIC_BOARD
+        SET
+            TITLE = #{title}
+            , CONTENT = #{content}
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
 </mapper>
 
 

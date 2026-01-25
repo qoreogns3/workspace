@@ -3,9 +3,7 @@ package com.green.basic_board.controller;
 import com.green.basic_board.dto.BoardDTO;
 import com.green.basic_board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,5 +42,17 @@ public class BoardController {
     dto.setReadCnt(readCnt);
     List<BoardDTO> result = boardService.runTest4(dto);
     return result;
+
   }
+  @PostMapping("/test5")
+  public void regBoard(@RequestBody BoardDTO boardDTO){
+    boardService.regBoard(boardDTO);
+  }
+
+  @PutMapping("/boards/{boardNum}")
+  public void updateBoard(@PathVariable("boardNum")int boardNum, @RequestBody BoardDTO boardDTO){
+    boardDTO.setBoardNum(boardNum);
+    boardService.updateBoard(boardDTO);
+  }
+
 }
