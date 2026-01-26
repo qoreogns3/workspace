@@ -33,4 +33,20 @@ public class ItemService {
         return list;
     }
 
+    //상품 상세 정보 조회 기능 메서드
+    public ItemDTO getDetail(int itemNum){
+        ItemDTO result = itemMapper.selectItem(itemNum);
+        return result;
+    }
+
+    //상품 정보 수정 기능
+    public void updateItem(ItemDTO itemDTO){
+        itemMapper.updateItem(itemDTO);
+    }
+
+    //상품 삭제 기능
+    public void deleteItem(int itemNum){
+        itemMapper.deleteItem(itemNum);
+    }
+
 }

@@ -13,4 +13,13 @@ public interface ItemMapper {
 
     //상품 목록 조회 쿼리 실행 메서드
     List<ItemDTO> selectItemList();
+
+    //상품 상세 조회 쿼리 실행 메서드
+    ItemDTO selectItem(int itemNum);
+
+    //상품 정보 수정 쿼리 실행 메서드
+    void updateItem(ItemDTO itemDTO);
+
+    //상품 삭제 쿼리 실행 메서드
+    void deleteItem(int itemNum);
 }

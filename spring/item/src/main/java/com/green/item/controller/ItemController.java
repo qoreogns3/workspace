@@ -29,4 +29,28 @@ public class ItemController {
         List<ItemDTO> list = itemService.getItemList();
         return list;
     }
+
+    //상품 상세 정보 조회 api
+    // (GET) localhost:8080/items/1
+    @GetMapping("/{itemNum}")
+    public ItemDTO getDetail(@PathVariable("itemNum") int itemNum){
+        ItemDTO result = itemService.getDetail(itemNum);
+        return result;
+    }
+
+    //상품 정보 수정 api
+    // (PUT) localhost:8080/items/3
+    @PutMapping("/{itemNum}")
+    public void updateItem(@RequestBody ItemDTO itemDTO, @PathVariable("itemNum") int itemNum){
+        itemDTO.setItemNum(itemNum);
+        itemService.updateItem(itemDTO);
+    }
+
+    //상품 삭제 api
+    // (DELETE) localhost:8080/items/3
+    @DeleteMapping("/{itemNum}")
+    public void deleteItem(@PathVariable ("itemNum") int itemNum){
+        itemService.deleteItem(itemNum);
+    }
+
 }
