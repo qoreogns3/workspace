@@ -1,0 +1,28 @@
+.listDiv{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.list{
+  width: 80%;
+  font-size: 15px;
+}
+
+.list > tr, td {
+  border: 2px solid white;
+  padding: 3px;
+}
+
+.list > tbody > tr:nth-child(even){
+  background-color: lightgrey;
+}
+
+.list > tbody > tr:nth-child(odd){
+  background-color: gainsboro;
+}
+  
+.list > tbody > tr > td:nth-child(2){
+  text-align: left;
+}
