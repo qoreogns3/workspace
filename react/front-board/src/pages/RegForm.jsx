@@ -2,26 +2,35 @@ import React from 'react'
 import styles from './RegForm.module.css'
 const RegForm = () => {
   return (
-    <div className={styles.listDiv}>
-      <table className={styles.list}>
+    <div className={styles.container}>
+      <table className={styles.reg}>
         <thead></thead>
         <tbody>
           <tr>
             <td>제목</td>
             <td>
-              <input type="text" />
+              <input 
+                type="text"
+                className={styles.titleText}
+              />
             </td>
           </tr>
           <tr>
             <td>작성자</td>
             <td>
-              <input type="text" />
+              <input 
+                type="text" 
+                className={styles.writerText}
+              />
             </td>
           </tr>
           <tr>
             <td>내용</td>
             <td>
-              <textarea/>
+              <textarea 
+                className={styles.contentArea}
+                rows={15}  
+              />
             </td>
           </tr>
         </tbody>
