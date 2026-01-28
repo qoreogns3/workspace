@@ -1,47 +1,49 @@
 .container{
   text-align: center;
-  width: 100%;
 }
 
-.container > h2 {
+.container > h2{
   font-style: italic;
   font-weight: bold;
   color: darkgray;
 }
 
-.reg{
-  font-size: 18px;
-  width : 100%;
+.detailTable{
   margin: 15px 0px;
+  width: 100%;
 }
 
-.reg > tr, td {
+
+.detailTable > tr, td {
   border: 2px solid white;
-  padding: 10px;
-  vertical-align: middle;
 }
 
-.reg > tbody > tr > td:first-child{
+.detailTable > tbody > tr > td:nth-child(odd){
   background-color: darkgrey;
   color: white;
   font-weight: bold;
 }
 
-.reg > tbody > tr{
+.detailTable > tbody > tr > td:nth-child(even){
   background-color: whitesmoke
 }
 
-.titleText, .writerText, .contentArea{
-  width: 100%;
-  font-size: 18px;
+.titleTd, .contentTd{
+  text-align: left;
 }
 
-.reg > tbody > tr > td:first-child{
-  width: 200px;
-  font-weight: bold;
+.contentTd{
+  height: 300px;
+  vertical-align: top;
 }
 
-.container > button{
+.btnDiv{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btnDiv > button{
   background-color: black;
   color: white;
   border-radius: 5px;

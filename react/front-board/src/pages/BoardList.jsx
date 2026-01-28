@@ -5,13 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 const BoardList = () => {
   const [list,setList] = useState([]);
+
   useEffect(()=>{
     axios.get('http://localhost:8080/boards')
     .then(response => setList(response.data))
     .catch(e => console.log(e))
-  }, [])
+  }, []);
 
   const nav = useNavigate();
+
 
   return (
     <>
@@ -26,6 +28,14 @@ const BoardList = () => {
         </div>
         <div className={styles.listDiv}>
           <table className={styles.listTable}>
+            {/* 테이블의 각 컬럼 너비값 지점 */}
+            <colgroup> 
+              <col width='7%'/>
+              <col width='*'/>
+              <col width='15%'/>
+              <col width='25%'/>
+              <col width='10%'/>
+            </colgroup>
             <thead>
               <tr>
                 <td>No</td>
@@ -39,9 +49,14 @@ const BoardList = () => {
               {
                 list.map((data, i) => {
                   return(
-                    <tr>
-                      <td>{data.boardNum}</td>
-                      <td>{data.title}</td>
+                    <tr key={data.boardNum}>
+                      <td>{list.length -i}</td>
+                      <td
+                        style={{cursor : 'pointer'}}
+                        onClick={e => {
+                          nav(`/detail/${data.boardNum}`)
+                        }}
+                      >{data.title}</td>
                       <td>{data.writer}</td>
                       <td>{data.createDate}</td>
                       <td>{data.readCnt}</td>
@@ -57,7 +72,6 @@ const BoardList = () => {
           >글쓰기</button>
         </div>
         <div className={styles.btn}>
-          
         </div>
       </div>
     </>

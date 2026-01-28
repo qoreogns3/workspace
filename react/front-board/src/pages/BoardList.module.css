@@ -1,13 +1,12 @@
 .container{
   text-align: center;
-  margin: 5% 20%;
 }
 
 .searchDiv{
   display: flex;
   justify-content: end;
   gap: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .listTable{
@@ -30,11 +29,17 @@
 }
 
 .listTable > tbody > tr:nth-child(even){
-  background-color: darkgrey;
+  background-color: gainsboro;
 }
 
 .listTable > tbody > tr:nth-child(odd){
-  background-color: gainsboro;
+  background-color: whitesmoke
+}
+
+.listTable > tbody > tr:hover{
+  background-color: dimgrey;
+  color: white;
+  font-weight: bold;
 }
   
 .listTable > tbody > tr > td:nth-child(2){
@@ -50,4 +55,11 @@
   width: 100px;
   cursor: pointer;
   margin-top: 10px;
+}
+
+.searchDiv > button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }

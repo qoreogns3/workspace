@@ -21,7 +21,49 @@
 			, READ_CNT
 			, CREATE_DATE
 		FROM BASIC_BOARD
+		ORDER BY BOARD_NUM DESC
 	</select>
+
+	<insert id="insertBoard">
+		INSERT INTO BASIC_BOARD (
+			TITLE
+			, WRITER
+			, CONTENT
+		) VALUE (
+			#{title}
+			, #{writer}
+			, #{content}
+		)
+	</insert>
+
+	<select id="getDetail" resultMap="board">
+		SELECT CREATE_DATE
+			, WRITER
+			, READ_CNT
+			, TITLE
+			, CONTENT
+		FROM BASIC_BOARD
+		WHERE BOARD_NUM = #{boardNum}
+	</select>
+
+	<update id="cnt">
+		UPDATE BASIC_BOARD
+		SET	READ_CNT = READ_CNT + 1
+		WHERE BOARD_NUM = #{boardNum}
+	</update>
+
+	<update id="updateBoard">
+		UPDATE BASIC_BOARD
+		SET
+			TITLE = #{title}
+			, CONTENT = #{content}
+		WHERE BOARD_NUM = #{boardNum}
+	</update>
+
+	<delete id="deleteBoard">
+		DELETE FROM BASIC_BOARD
+		WHERE BOARD_NUM = #{boardNum}
+	</delete>
 </mapper>
 
 
