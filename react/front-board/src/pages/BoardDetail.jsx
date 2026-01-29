@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './BoardDetail.module.css'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import Reply from './Reply'
 const BoardDetail = () => {
 
   const {boardNum} = useParams();
@@ -73,6 +74,7 @@ const BoardDetail = () => {
           >삭제</button>
         </div>
       </div>
+      <Reply boardNum = {boardNum}/>
     </>
   )
 }

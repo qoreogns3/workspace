@@ -14,6 +14,15 @@
 
 	</resultMap>
 
+	<resultMap id="reply" type="com.green.board.dto.ReplyDTO">
+		<id 	column="REPLY_NUM" 		property="replyNum"/>
+		<result column="CONTENT" 		property="content"/>
+		<result column="WRITER" 		property="writer"/>
+		<result column="REG_DATE" 		property="regDate"/>
+		<result column="BOARD_NUM" 		property="boardNum"/>
+
+	</resultMap>
+
 	<select id="getList" resultMap="board">
 		SELECT BOARD_NUM
 			, TITLE
@@ -64,6 +73,62 @@
 		DELETE FROM BASIC_BOARD
 		WHERE BOARD_NUM = #{boardNum}
 	</delete>
+
+	<select id="getTitleList" resultMap="board">
+		SELECT BOARD_NUM
+		, TITLE
+		, WRITER
+		, READ_CNT
+		, CREATE_DATE
+		FROM BASIC_BOARD
+		WHERE TITLE = #{title}
+		ORDER BY BOARD_NUM DESC
+	</select>
+
+	<select id="getWriterList" resultMap="board">
+		SELECT BOARD_NUM
+		, TITLE
+		, WRITER
+		, READ_CNT
+		, CREATE_DATE
+		FROM BASIC_BOARD
+		WHERE WRITER = #{writer}
+		ORDER BY BOARD_NUM DESC
+	</select>
+
+	<insert id="regReply">
+		INSERT INTO BOARD_REPLY (
+			WRITER
+			, CONTENT
+			, BOARD_NUM
+		) VALUE (
+			#{writer}
+			, #{content}
+			, #{boardNum}
+		)
+	</insert>
+
+	<select id="getReplyList" resultMap="reply">
+		SELECT WRITER
+			, REG_DATE
+			, CONTENT
+			, REPLY_NUM
+		FROM BOARD_REPLY
+		WHERE BOARD_NUM = #{boardNum}
+		ORDER BY REPLY_NUM DESC
+	</select>
+
+	<delete id="deleteReply">
+		DELETE FROM BOARD_REPLY
+		WHERE REPLY_NUM = #{replyNum}
+	</delete>
+
+	<delete id="deleteBoardReply">
+		DELETE FROM BOARD_REPLY
+		WHERE BOARD_NUM = #{boardNum}
+	</delete>
+
+
 </mapper>
 
 

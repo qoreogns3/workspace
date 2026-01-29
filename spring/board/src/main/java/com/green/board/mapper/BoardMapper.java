@@ -1,6 +1,8 @@
 package com.green.board.mapper;
 
 import com.green.board.dto.BoardDTO;
+import com.green.board.dto.ReplyDTO;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -25,4 +27,22 @@ public interface BoardMapper {
 
   //삭제 메서드
   void deleteBoard(int boardNum);
+
+  //제목 검색 조회 메서드
+  List<BoardDTO> getTitleList(String title);
+
+  //작성자 검색 조회 메서드
+  List<BoardDTO> getWriterList(String writer);
+
+  //댓글 등록 메서드
+  void regReply(ReplyDTO replyDTO);
+
+  //댓글 조회 메서드
+  List<ReplyDTO> getReplyList(int boardNum);
+
+  //댓글 삭제 메서드
+  void deleteReply(int replyNum);
+
+  //보드 댓글 삭제 메서드
+  void deleteBoardReply(int BoardNum);
 }

@@ -7,24 +7,43 @@ const BoardList = () => {
   const [list,setList] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:8080/boards')
+    axios.get('http://localhost:8080/boards',search)
     .then(response => setList(response.data))
     .catch(e => console.log(e))
   }, []);
 
   const nav = useNavigate();
 
+  const [option, setOpiton] = useState('title');
+
+  const [search, setSearch] = useState('');
+
+  const searchList = () => {
+    if (option == 'title'){
+      
+    }
+  console.log(search)  
+  }
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.searchDiv}>
-          <select>
-            <option value="">제목</option>
-            <option value="">작성자</option>
+          <select value={option} onChange={e => setOpiton(e.target.value)}>
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
           </select>
-          <input type="text" />
-          <button type='button'>검색</button>
+          <input 
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)} 
+          />
+          <button 
+            type='button'
+            onClick={e => {
+
+            }}
+          >검색</button>
         </div>
         <div className={styles.listDiv}>
           <table className={styles.listTable}>

@@ -1,0 +1,49 @@
+.container{
+  margin: 30px 10%;
+}
+
+.regDiv{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.regDiv > button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.reply{
+  margin: 0px 20px;
+}
+
+.writerDiv{
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: gray;
+}
+
+
+.hr{
+  margin-bottom: 20px;
+}
+
+.delete{
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete > button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  width: 70px;
+  cursor: pointer;
+}

@@ -1,9 +1,12 @@
 package com.green.board.controller;
 
 import com.green.board.dto.BoardDTO;
+import com.green.board.dto.ReplyDTO;
+
 import com.green.board.service.BoardService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -43,9 +46,29 @@ public class BoardController {
     boardService.updateBoard(boardDTO);
   }
 
-  //삭제 api
+  //삭제 및 보드 댓글 삭제api
   @DeleteMapping("/{boardNum}")
   public void deleteBoard(@PathVariable("boardNum") int boardNum){
+    boardService.deleteBoardReply(boardNum);
     boardService.deleteBoard(boardNum);
+  }
+
+  //댓글 등록 api
+  @PostMapping("/reply/{boardNum}")
+  public void regReply(@RequestBody ReplyDTO replyDTO, @PathVariable("boardNum") int boardNum){
+    replyDTO.setBoardNum(boardNum);
+    boardService.regReply(replyDTO);
+  }
+
+  //댓글 조회 api
+  @GetMapping("/reply/{boardNum}")
+  public List<ReplyDTO> getReplyList(@PathVariable("boardNum") int boardNum){
+    return boardService.getReplyList(boardNum);
+  }
+
+  //댓글 삭제 api
+  @DeleteMapping("/reply/{replyNum}")
+  public void deleteReply(@PathVariable("replyNum") int replyNum){
+    boardService.deleteReply(replyNum);
   }
 }
