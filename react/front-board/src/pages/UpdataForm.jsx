@@ -6,6 +6,8 @@ const UpdataForm = () => {
   
   const [data,setData] = useState({})
   
+  
+
   const [update,setUpdate] = useState({
     title : '',
     content : ''
@@ -14,8 +16,14 @@ const UpdataForm = () => {
   const {boardNum} = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/boards/${boardNum}`)
-    .then(response => setData(response.data))
+    axios.get(`http://localhost:8080/boards/update/${boardNum}`)
+    .then(response =>{ 
+      setData(response.data)
+      setUpdate({
+        title : response.data.title,
+        content : response.data.content
+      })
+    })
     .catch(e => console.log(e))
   },[])
 
@@ -27,7 +35,7 @@ const UpdataForm = () => {
   }
 
   const updateData = () => {
-    axios.put(`http://localhost:8080/boards/${boardNum}`, update)
+    axios.put(`http://localhost:8080/boards/${boardNum}`, update) // 데이터 전달은 put과 post만 가능! get은 안됨!
     .then(response => {
       alert('수정 성공');
       nav(`/detail/${boardNum}`)
@@ -58,6 +66,7 @@ const UpdataForm = () => {
                   type="text"
                   className={styles.titleText} 
                   name='title'
+                  //value와 onchange는 같은 데이터를 다루어야한다.
                   value={update.title}
                   onChange={e => handlUpdate(e)}
                 />

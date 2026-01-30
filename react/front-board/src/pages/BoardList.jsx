@@ -13,17 +13,30 @@ const BoardList = () => {
   }, []);
 
   const nav = useNavigate();
-
+  
+  //옵션 저장
   const [option, setOpiton] = useState('title');
-
+  
+  //검색창 저장
   const [search, setSearch] = useState('');
 
+  //검색 버튼 함수
   const searchList = () => {
-    if (option == 'title'){
-      
+    if (search === ''){
+      alert('검색창에 조회 내용을 입력해주세요')
     }
-  console.log(search)  
+    else if (option === 'title'){
+      axios.get(`http://localhost:8080/boards/title/${search}`)
+      .then(response => setList(response.data))
+      .catch(e => console.log(e))
+    }
+    else if(option === 'writer'){
+      axios.get(`http://localhost:8080/boards/writer/${search}`)
+      .then(response => setList(response.data))
+      .catch(e => console.log(e))
+    }
   }
+
 
   return (
     <>
@@ -41,7 +54,7 @@ const BoardList = () => {
           <button 
             type='button'
             onClick={e => {
-
+              searchList()
             }}
           >검색</button>
         </div>

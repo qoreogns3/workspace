@@ -18,12 +18,18 @@ const BoardDetail = () => {
   const nav = useNavigate();
 
   const deleteBoard = () => {
-    axios.delete(`http://localhost:8080/boards/${boardNum}`)
-    .then(response => {
-      alert('삭제 완료')
-      nav('/')
-    })
-    .catch(e => console.log(e))
+    //confirm() -> 확인, 취소 버튼에 따라 리턴값 결정, 확인 -> true, 취소 -> false
+    const result = confirm('정말 삭제할까요?');
+    if (result){ //if문에서 괄호안에 true 값이 들어오면 실행
+      axios.delete(`http://localhost:8080/boards/${boardNum}`)
+      .then(response => {
+        alert('삭제 완료')
+        nav('/')
+      })
+      .catch(e => console.log(e))
+    }
+    
+    
   }
 
   return (

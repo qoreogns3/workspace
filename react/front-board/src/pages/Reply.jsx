@@ -59,7 +59,7 @@ const Reply = (props) => {
             value={reply.writer}
             onChange={e => handleReply(e)} 
             style={{
-              width : '130px',
+              width : '15%',
               fontSize : '16px',
               padding : '5px 10px'
             }}
@@ -71,7 +71,7 @@ const Reply = (props) => {
             value={reply.content}
             onChange={e => handleReply(e)}
             style={{
-              width : '450px',
+              width : '73%',
               fontSize : '16px',
               padding : '5px 10px'
             }} 
@@ -101,7 +101,6 @@ const Reply = (props) => {
             )
           })}
         </div>
-
       </div>
     </>
   )

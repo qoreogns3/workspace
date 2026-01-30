@@ -30,13 +30,14 @@ public class BoardService {
 
   //게시판 상세 조회 기능
   public BoardDTO getDetail(int boardNum){
+    boardMapper.cnt(boardNum);
     BoardDTO boardDTO = boardMapper.getDetail(boardNum);
     return boardDTO;
   }
 
-  //조회수 기능
-  public void cnt(int boardNum){
-    boardMapper.cnt(boardNum);
+  //게시판 수정 조회 기능
+  public BoardDTO getUpdateBoard(int boardNum) {
+    return boardMapper.getDetail(boardNum);
   }
 
   //수정 기능
