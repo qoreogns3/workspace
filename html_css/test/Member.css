@@ -1,0 +1,72 @@
+.container{
+  padding: 10px;
+}
+
+td{
+  border: 1px solid lightgray;
+}
+
+table {
+  width: 100%;
+  font-size: 12px;
+}
+
+
+table td:first-child{
+  background-color: ghostwhite;
+  width: 200px;
+  padding: 5px 20px;
+}
+
+table td:last-child{
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.a {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.red{
+  color: red;
+}
+
+input {
+  border: 1px solid lightgray;
+  padding: 3px;
+}
+
+.adrr{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.adrr button{
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+.adrr > p:nth-child(1) >input{
+  width: 100px;
+}
+
+.adrr > p:not(:nth-child(1)) > input{
+  width: 400px;
+}
+
+.tel, .year{
+  width: 80px;
+}
+
+.month{
+  width: 50px;
+}
+

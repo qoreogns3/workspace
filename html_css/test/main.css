@@ -1,63 +1,188 @@
-.container{
-  margin: 30px 0px;
-  text-align: center;
+.header{
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin: 40px 0px;
 }
 
 .menu{
   display: flex;
-  gap: 15px;
-  justify-content: center;
-  font-weight: bold;
-  margin-bottom: 40px;
+  gap: 20px;
 }
 
-.menu > input{
-  margin-left: 200px;
+li{
+  cursor: pointer;
+}
+
+li:hover{
+  color: orange;
+}
+
+.searchbar > input{
   border: 1px solid lightgrey;
   width: 300px;
+  height: 30px;
 }
 
-.imgDiv{
-  overflow: hidden;
-  height: 400px;
-}
-
-.img1 {
-  width: 100%;
-  height: 80%;
-}
-
-.iconDiv{
-  display: flex;
-  gap: 100px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.iconDiv > div{
-  background-color: #f78e21;
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.searchbar{
   position: relative;
 }
 
+.searchbar > i{
+  color: orange;
+  position: absolute;
+  right: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
 
-.iconDiv > div > i {
+.imgDiv {
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+.imgDiv > img{
+  width: 100%;
+  height: 120%;
+}
+
+.imgText{
+  position: absolute;
+  top: 80px;
+  width: 100%;
+
+}
+
+.imgText > h1{
+  color: orange;
+  margin-bottom: 30px;
+}
+
+.imgText > p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.imgText > button{
+  margin-top: 20px;
+  background-color: orange;
+  width: 150px;
+  height: 40px;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.contentContainer{
+  width: 1200px;
+  margin: auto;
+}
+
+.a1{
+  text-align: center;
+  margin: 40px 0px;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.c{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.c1{
+ width: 100px;
+ height: 100px;
+ background-color: orange;
+ border-radius: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.c1 > div{
   background-color: white;
-  color: #f78e21;
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  position: absolute;
   line-height: 60px;
 }
 
-.msgDiv{
-  margin-top: 450px;
-  width: 400px;
-  overflow
+.c1 i {
+  color: orange;
+  font-size: 20px;
+}
+
+.c > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cc1 > p:first-child{
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+.cc1 > p:not(:first-child){
+  font-size: 10px;
+  color: gray;
+}
+
+.b1{
+  text-align: center;
+  margin: 100px 0px 50px 0px;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.a{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  gap: 30px;
+  margin: 0px 80px;
+}
+
+.a > div{
+  position: relative;
+}
+
+.a img {
+  width: 100%;
+  height: 100%;
+}
+
+.a > div > div{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: left;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.a > div > div > p:first-child{
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.a > div > div > p:last-child{
+  color: orange;
+  font-size: 12px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
