@@ -27,7 +27,6 @@ const RegForm = () => {
     .catch(e => console.log(e))
   }
 
-  
 
   return (
     <>
@@ -56,7 +55,9 @@ const RegForm = () => {
                   className={styles.writerText}
                   name='writer'
                   value={data.writer}
-                  onChange={e => handleData(e)}
+                  onChange={e => 
+                    {handleData(e)}
+                  }
                 />
               </td>
             </tr>
@@ -76,7 +77,7 @@ const RegForm = () => {
         </table>
         <button
           onClick={e => {
-            data.title === '' || data.writer === '' ?
+            data.title.trim() === '' || data.writer.trim() === '' ?
             alert('제목과 작성자를 입력해주세요')
             : regData()
           }}

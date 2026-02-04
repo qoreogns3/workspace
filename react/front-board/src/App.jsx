@@ -18,15 +18,15 @@ function App() {
         margin : "30px auto"
       }}>
         <Routes>
-        {/* 게시글 목록 페이지, localhost:5173 */}
-        <Route path='/' element={<BoardList/>}/>
-        {/* 게시글 상세 조회 페이지 */}
-        <Route path='/detail/:boardNum' element={<BoardDetail/>}/>
-        {/* 게시글 등록 페이지, localhost:5173/reg */}
-        <Route path='/reg' element={<RegForm/>}/>
-        {/* 게시글 수정 페이지 */}
-        <Route path='/update/:boardNum' element={<UpdataForm/>}/>
-      </Routes>
+          {/* 게시글 목록 페이지, localhost:5173 */}
+          <Route path='/' element={<BoardList/>}/>
+          {/* 게시글 상세 조회 페이지 */}
+          <Route path='/detail/:boardNum' element={<BoardDetail/>}/>
+          {/* 게시글 등록 페이지, localhost:5173/reg */}
+          <Route path='/reg' element={<RegForm/>}/>
+          {/* 게시글 수정 페이지 */}
+          <Route path='/update/:boardNum' element={<UpdataForm/>}/>
+        </Routes>
       </div>
       
     </>

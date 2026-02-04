@@ -4,11 +4,15 @@ import com.green.board.dto.BoardDTO;
 import com.green.board.dto.ReplyDTO;
 
 import com.green.board.service.BoardService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/boards")
 public class BoardController {
@@ -20,15 +24,31 @@ public class BoardController {
 
   //게시판 목록 전체 조회 api
   @GetMapping("")
-  public List<BoardDTO> getList() {
-    List<BoardDTO> list = boardService.getList();
-    return list;
+  public ResponseEntity<?> getList() {
+    try {
+      log.info("게시글 목록 조회 기능 실행중");
+      List<BoardDTO> list = boardService.getList();
+      return ResponseEntity.status(HttpStatus.OK).body(list);
+    }catch (Exception e){
+      log.error("게시글 목록 조회 중 오류 발생!!!");
+      e.printStackTrace(); //오류나는 이유 및 발생 위치를 알려줌
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("오류났어요");
+    }
   }
 
   //게시판 등록 api
   @PostMapping("")
-  public void insertMapping(@RequestBody BoardDTO boardDTO) {
-    boardService.insertItem(boardDTO);
+  public ResponseEntity<Object> insertMapping(@RequestBody BoardDTO boardDTO) {
+    try {
+      boardService.insertItem(boardDTO);
+      return ResponseEntity.status(HttpStatus.CREATED).build();
+    }catch (Exception e){
+      log.error("게시글 등록 중 오류");
+      e.printStackTrace();
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+
   }
 
   //게시판 상세 조회 api

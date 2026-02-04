@@ -27,14 +27,18 @@ const Reply = (props) => {
     })
   };
 
+  // if(){
+  //   return;
+  // }
+  // 리턴 시 함수 바로 종료
 
   const regReply = () => {
-    reply.writer === '' || reply.content === '' ?
+    reply.writer.trim() === '' || reply.content.trim() === '' ?
     alert('작성자와 내용을 입력해주세요.')
     : axios.post(`http://localhost:8080/boards/reply/${props.boardNum}`, reply)
     .then(response =>{ 
-        alert('등록 완료')
-        nav(0)
+      alert('등록 완료')
+      nav(0)
      })
     .catch(e => console.log(e))
   };

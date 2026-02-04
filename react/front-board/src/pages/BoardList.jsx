@@ -9,7 +9,7 @@ const BoardList = () => {
   useEffect(()=>{
     axios.get('http://localhost:8080/boards',search)
     .then(response => setList(response.data))
-    .catch(e => console.log(e))
+    .catch(e => console.log(e.response)) //응답 정보
   }, []);
 
   const nav = useNavigate();
@@ -23,7 +23,9 @@ const BoardList = () => {
   //검색 버튼 함수
   const searchList = () => {
     if (search === ''){
-      alert('검색창에 조회 내용을 입력해주세요')
+      axios.get('http://localhost:8080/boards',search)
+      .then(response => setList(response.data))
+      .catch(e => console.log(e))
     }
     else if (option === 'title'){
       axios.get(`http://localhost:8080/boards/title/${search}`)
