@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from './BoardList.module.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getList } from '../api/boardApi';
 
 const BoardList = () => {
   const [list,setList] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:8080/boards',search)
+    axios.get('http://localhost:8080/boards')
     .then(response => setList(response.data))
     .catch(e => console.log(e.response)) //응답 정보
   }, []);
@@ -21,11 +22,10 @@ const BoardList = () => {
   const [search, setSearch] = useState('');
 
   //검색 버튼 함수
-  const searchList = () => {
+  const searchList = async () => {
     if (search === ''){
-      axios.get('http://localhost:8080/boards',search)
-      .then(response => setList(response.data))
-      .catch(e => console.log(e))
+      const response = await getList(search);
+      setList(response.data);
     }
     else if (option === 'title'){
       axios.get(`http://localhost:8080/boards/title/${search}`)

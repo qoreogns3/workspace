@@ -1,0 +1,17 @@
+.header{
+  height: 60px;
+  background-color: black;
+  
+}
+
+.menu{
+  display: flex;
+  height: 100%;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu > li {
+  cursor: pointer;
+}

@@ -5,6 +5,11 @@ import BoardList from './pages/BoardList'
 import RegForm from './pages/RegForm'
 import BoardDetail from './pages/BoardDetail'
 import UpdataForm from './pages/UpdataForm'
+import UseState1 from './study/UseState1'
+import UseState2 from './study/UseState2'
+import Axios1 from './study/Axios1'
+import Axios2 from './study/Axios2'
+import Axios3 from './study/Axios3'
 
 function App() {
 
@@ -17,6 +22,12 @@ function App() {
         width : '50%',
         margin : "30px auto"
       }}>
+        {/* <UseState1/> */}
+        {/* <UseState2/> */}
+        {/* <Axios1/> */}
+        {/* <Axios2/>
+        <Axios3/> */}
+      
         <Routes>
           {/* 게시글 목록 페이지, localhost:5173 */}
           <Route path='/' element={<BoardList/>}/>

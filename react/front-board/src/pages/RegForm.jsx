@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './RegForm.module.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { save } from '../api/boardApi'
 const RegForm = () => {
   const [data, setData] = useState({
     title : '',
@@ -18,13 +19,10 @@ const RegForm = () => {
 
   const nav = useNavigate();
 
-  const regData = () => {
-    axios.post('http://localhost:8080/boards', data)
-    .then(response => {
-      alert('등록 완료!')
-      nav('/')
-    })
-    .catch(e => console.log(e))
+  const regData = async () => {
+    const response = await save(data);
+    alert('등록 완료!')
+    nav('/')
   }
 
 

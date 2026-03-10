@@ -1,0 +1,20 @@
+.reg_car{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reg_car > div{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.reg_car input{
+  width: 200px;
+  padding: 5px 10px;
+}
+
+.reg_car select{
+  width: 200px;
+  height: 31px;
+}

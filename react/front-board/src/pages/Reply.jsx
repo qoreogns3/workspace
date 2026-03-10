@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Reply.module.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { delReply, replysList, saveReply } from '../api/replyApi';
 
 const Reply = (props) => {
 
@@ -9,10 +10,12 @@ const Reply = (props) => {
   
   const [replyList, setReplyList] = useState([]);
 
-  useEffect(()=>{
-    axios.get(`http://localhost:8080/boards/reply/${props.boardNum}`)
-    .then(response => setReplyList(response.data))
-    .catch(e => console.log(e))  
+  useEffect( ()=>{
+    const fetchReplies = async () => {
+      const response = await replysList(props.boardNum);
+      setReplyList(response.data);
+    };
+    fetchReplies();
   }, [])
 
   const [reply, setReply] = useState({
@@ -32,24 +35,18 @@ const Reply = (props) => {
   // }
   // 리턴 시 함수 바로 종료
 
-  const regReply = () => {
+  const regReply = async () => {
     reply.writer.trim() === '' || reply.content.trim() === '' ?
     alert('작성자와 내용을 입력해주세요.')
-    : axios.post(`http://localhost:8080/boards/reply/${props.boardNum}`, reply)
-    .then(response =>{ 
-      alert('등록 완료')
-      nav(0)
-     })
-    .catch(e => console.log(e))
+    : await saveReply(props.boardNum, reply);
+    alert('댓글 등록 완료')
+    nav(0);
   };
   
-  const deleteReply = (num) => {
-    axios.delete(`http://localhost:8080/boards/reply/${num}`)
-    .then(response => {
-      alert('삭제 완료')
-      nav(0)
-    })
-    .catch(e => console.log(e))
+  const deleteReply = async (num) => {
+    const response = await delReply(num);
+    alert('삭제 완료')
+    nav(0)
   }
 
   return (
