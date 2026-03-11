@@ -8,8 +8,8 @@ const Header = () => {
       <ul className={styles.menu}>
         <NavLink to=''><li>홈</li></NavLink>
         <NavLink to='/reg'><li>차량관리</li></NavLink>
-        <li>판매정보등록</li>
-        <li>판매목록조회</li>
+        <NavLink to='/sale'><li>판매정보등록</li></NavLink>
+        <NavLink to='/list'><li>판매목록조회</li></NavLink>
       </ul>
     </div>
   )

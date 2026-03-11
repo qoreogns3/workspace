@@ -3,8 +3,33 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
-<mapper namespace="mapper">
-	
+<mapper namespace="com.green.car_shop.car.mapper.CarMapper">
+    <resultMap id="car" type="com.green.car_shop.car.dto.CarDTO">
+        <id  property="modelNo"      column="MODEL_NO"/>
+        <result property="modelName"     column="MODEL_NAME"/>
+        <result property="price"         column="PRICE"/>
+        <result property="manufacturer"  column="MANUFACTURER"/>
+    </resultMap>
+
+<!--  차량 등록 쿼리  -->
+    <insert id="regCar">
+        INSERT INTO CAR_INFO (
+            MODEL_NAME
+            , PRICE
+            , MANUFACTURER
+        ) VALUES (
+            #{modelName}
+            , #{price}
+            , #{manufacturer}
+        )
+    </insert>
+
+<!--  차량 조회 쿼리  -->
+    <select id="getCars" resultMap="car">
+        SELECT *
+        FROM CAR_INFO
+        ORDER BY MODEL_NO DESC
+    </select>
 </mapper>
 
 

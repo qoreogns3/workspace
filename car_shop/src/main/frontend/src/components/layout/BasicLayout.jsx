@@ -7,7 +7,7 @@ const BasicLayout = () => {
   return (
     <div className={styles.container}>
       <Header/>
-      <div>
+      <div className={styles.body}>
         <Outlet/>
       </div>
     </div>

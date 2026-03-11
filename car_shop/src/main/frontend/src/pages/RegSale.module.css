@@ -1,0 +1,48 @@
+.container{
+  width: 80%;
+  margin: auto;
+}
+
+.container h2{
+  margin-bottom: 1rem;
+}
+
+.container > div{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container p{
+  width: 100px;
+}
+
+.color_model{
+  display: flex;
+  justify-content: space-between;
+}
+
+.color_model > div{
+  display: flex;
+  align-items: center;
+  gap: 2rem
+}
+
+.container input,
+.container select{
+  width: 200px;
+}
+
+.btn_div{
+  display: flex;
+  justify-content: right;
+}
+
+.phone_error{
+  font-size: 0.8rem;
+	color: red;
+	opacity: 70%;
+	margin-top: 0.2rem;
+  white-space: nowrap;
+}

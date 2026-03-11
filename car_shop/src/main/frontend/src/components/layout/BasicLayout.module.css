@@ -1,4 +1,8 @@
 .container{
-  width : 80%;
+  width : 1000px;
   margin: auto;
+}
+
+.body {
+  padding-top: 60px;
 }
