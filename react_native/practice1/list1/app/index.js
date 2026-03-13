@@ -6,7 +6,7 @@ import MemberList from '../components/MemberList'
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>한국 선수</Text>
+      <Text style={{fontSize : 30, marginBottom : 30}}>한국 선수</Text>
       
       <MemberList/>
     </SafeAreaView>
@@ -17,6 +17,7 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
   container: {
-    padding : '50%'
+    padding : 16,
+    flex : 1
   }
 })
