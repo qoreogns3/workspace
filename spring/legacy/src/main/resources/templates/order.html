@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/orders/setOrder" method="post">
+    <input type="radio" name="menu" value="후라이드치킨"> 후라이드치킨
+    <input type="radio" name="menu" value="양념치킨"> 양념치킨
+    <input type="radio" name="menu" value="간장치킨"> 간장치킨
+    <input type="radio" name="menu" value="고추바사삭"> 고추바사삭
+    <input type="radio" name="menu" id="뿌링클"> 뿌링클
+    <input type="radio" name="menu" id="매운핫치킨"> 매운핫치킨
+  
+    몇마리 <input type="text" name="num">
+  
+    <p>추가할게요(추가 시 1000원)</p>
+    <input type="checkbox" name="add" value="양념추가"> 양념추가
+    <input type="checkbox" name="add" value="머스타드추가"> 머스타드추가
+    <input type="checkbox" name="add" value="콜라추가"> 콜라추가
+    <p>요청사항</p>
+    <textarea name="need"></textarea>
+    <button type="submit">주문하러 가기</button>
+  </form>
+
+</body>
+</html>

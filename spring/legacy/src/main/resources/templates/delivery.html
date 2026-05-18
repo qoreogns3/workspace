@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/orders/delivery" method="post">
+    <p>배달 정보</p>
+    <input type="hidden" name="menu" th:value="${order.menu}">
+    <input type="hidden" name="num" th:value="${order.num}">
+    <th:block th:each="option : ${order.add}">
+      <input type="hidden" name="add" th:value="${option}">
+    </th:block>
+    <input type="hidden" name="need" th:value="${order.need}">
+    주문자 <input type="text" name="orderer">
+    연락처 <input type="text" name="phone">
+    배달 주소 <input type="text" name="addr">
+    <button type="submit">주문</button>
+  </form>
+</body>
+</html>

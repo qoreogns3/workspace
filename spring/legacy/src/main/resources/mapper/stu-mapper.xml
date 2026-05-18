@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.legacy.stu_manage.mapper.StuMapper">
+    <resultMap id="class" type="com.green.legacy.stu_manage.dto.ClassDTO">
+        <id     property="classNum"   column="CLASS_NUM"/>
+        <result property="className" column="CLASS_NAME"/>
+    </resultMap>
+
+    <resultMap id="stu" type="com.green.legacy.stu_manage.dto.StuDTO">
+        <id     property="stuNum"   column="STU_NUM"/>
+        <result property="stuName" column="STU_NAME"/>
+        <result property="stuYear" column="STU_YEAR"/>
+        <result property="classNum" column="CLASS_NUM"/>
+        <association property="classDTO" resultMap="class"/>
+    </resultMap>
+
+    <resultMap id="score" type="com.green.legacy.stu_manage.dto.ScoreDTO">
+        <id property="scoreNum" column="SCORE_NUM"/>
+        <result property="korScore" column="KOR_SCORE"/>
+        <result property="engScore" column="ENG_SCORE"/>
+        <result property="mathScore" column="MATH_SCORE"/>
+        <result property="stuNum" column="STU_NUM"/>
+        <association property="stuDTO" resultMap="stu"/>
+    </resultMap>
+
+    <select id="selectClass" resultMap="class">
+        SELECT * FROM ASYNC_CLASS
+    </select>
+
+    <select id="selectStuList" resultMap="stu">
+        SELECT
+            STU_NUM,
+            STU_NAME,
+            STU_YEAR,
+            S.CLASS_NUM,
+            CLASS_NAME
+        FROM ASYNC_STUDENT S
+        INNER JOIN ASYNC_CLASS C
+        ON S.CLASS_NUM = C.CLASS_NUM
+        WHERE S.CLASS_NUM = #{classNum}
+    </select>
+
+    <select id="selectAllList" resultMap="stu">
+        SELECT
+            STU_NUM,
+            STU_NAME,
+            STU_YEAR,
+            S.CLASS_NUM,
+            CLASS_NAME
+        FROM ASYNC_STUDENT S
+        INNER JOIN ASYNC_CLASS C
+        ON S.CLASS_NUM = C.CLASS_NUM
+    </select>
+
+    <select id="getScore" resultMap="score">
+        SELECT
+            SCORE_NUM,
+            KOR_SCORE,
+            ENG_SCORE,
+            MATH_SCORE,
+            S.STU_NUM,
+            STU_NAME
+        FROM ASYNC_SCORE SC
+        RIGHT JOIN ASYNC_STUDENT S
+        ON S.STU_NUM = SC.STU_NUM
+        WHERE S.STU_NUM = #{stuNum}
+    </select>
+
+    <update id="updateScore">
+        UPDATE ASYNC_SCORE
+        SET
+            KOR_SCORE = #{korScore},
+            ENG_SCORE = #{engScore},
+            MATH_SCORE = #{mathScore}
+        WHERE STU_NUM = #{stuNum}
+    </update>
+
+    <insert id="insertScore" useGeneratedKeys="true" keyProperty="scoreNum">
+        INSERT INTO ASYNC_SCORE (
+            STU_NUM,
+            KOR_SCORE,
+            ENG_SCORE,
+            MATH_SCORE
+        )VALUES(
+            #{stuNum},
+            #{korScore},
+            #{engScore},
+            #{mathScore}
+        )
+    </insert>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

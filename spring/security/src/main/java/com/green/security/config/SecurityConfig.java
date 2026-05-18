@@ -69,7 +69,7 @@ public class SecurityConfig {
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowCredentials(true); //쿠키 정보를 통신하기 위한 설정
-    config.addAllowedOrigin("http://localhost:5173"); //리액트에서의 요청 허용
+    config.addAllowedOriginPattern("*");
     config.addAllowedHeader("*"); //모든 헤더 정보 허용
     config.addAllowedMethod("*"); //get, post, delete, put 등의 요청 메서드 허용
 

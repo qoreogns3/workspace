@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <select id="classNum" onchange="asyncGetList()">
+      <option value="0" >전체</option>
+      <option 
+        th:each="class : ${classList}"
+        th:text="${class.className}"
+        th:value="${class.classNum}"
+        th:selected="${class.classNum} == ${selectedClassNum}"
+      ></option>
+    </select>
+    <table border="1" id="list_table">
+      <thead>
+        <tr>
+          <td>No</td>
+          <td>학번</td>
+          <td>이름</td>
+          <td>학년</td>
+          <td>학급번호</td>
+          <td>학급명</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="stu, state : ${stuList}">
+          <td>[[${#lists.size(stuList) - state.index}]]</td>
+          <td>[[${stu.stuNum}]]</td>
+          <td th:onclick=|asyncGetScore(${stu.stuNum})|>[[${stu.stuName}]]</td>
+          <td>[[${stu.stuYear}]]</td>
+          <td>[[${stu.classNum}]]</td>
+          <td>[[${stu.classDTO.className}]]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="score_table">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/stu_manage.js"></script>
+</body>
+</html>

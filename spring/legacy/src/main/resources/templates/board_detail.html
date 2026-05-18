@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>[[${board.boardNum}]]</p>
+  <p>[[${board.title}]]</p>
+  <p>[[${board.writer}]]</p>
+  <p>[[${board.content}]]</p>
+  <p>[[${board.regDate}]]</p>
+  <button type="button">목록</button>
+  <button 
+    type="button"
+    th:onclick = "|location.href='@{/boards/update-form(boardNum=${board.boardNum})}'|"  
+  >수정</button>
+  <button 
+    type="button"
+    th:onclick=|del(${board.boardNum})|  
+  >삭제</button>
+
+  <div>
+    <form action="/replys/write" method="post">
+      <input type="hidden" name="boardNum" th:value="${board.boardNum}">
+      <input type="text" name="replyWriter"> 
+      <input type="text" name="replyContent">
+      <button type="submit">댓글등록</button>
+    </form>
+    <th:block th:if="${#lists.isEmpty(replyList)}">
+      <p>댓글이 없습니다.</p>
+    </th:block>
+    <th:block th:unless="${#lists.isEmpty(replyList)}">
+      
+      <div th:each="reply : ${replyList}">
+        <p>[[${reply.replyWriter}]]</p>
+        <p>[[${reply.replyContent}]]</p>
+        <p>[[${reply.regDate}]]</p>
+        <button 
+          type="button"
+          th:onclick=|replyDel(${reply.replyNum},${reply.boardNum})|
+        >삭제</button>
+      </div>
+    </th:block>
+  </div>
+  
+
+  <script>
+    const del = (num) => {
+      const result = confirm('삭제?')
+
+      if(result){
+        location.href=`/boards/delete/${num}`
+      }
+    }
+
+    const replyDel = (replyNum, boardNum) => {
+      const result = confirm('삭제?')
+
+      if(result){
+        location.href=`/replys/delete?replyNum=${replyNum}&boardNum=${boardNum}`
+      }
+    }
+  </script>
+</body>
+</html>

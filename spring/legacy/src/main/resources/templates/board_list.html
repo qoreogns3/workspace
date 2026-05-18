@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- html에 thymeleaf 문법을 적용 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css, js파일은 resources 폴더 기준으로 검색 -->
+    <link rel="stylesheet" href="/css/board_list.css">
+</head>
+<body>
+  게시글 목록 페이지
+  <!-- <div th:text="${data}"></div>
+  <div>[[${ageData}]]</div>
+  <p th:text="${data + ageData}"></p>
+  <div th:text="${boardList}"></div> -->
+
+  <div>[[${boardDTO}]]</div>
+  <div>
+    <table class="list-table">
+      <thead>
+        <tr>
+          <td>글번호</td>
+          <td>제목</td>
+          <td>작성자</td>
+          <td>작성일</td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 리스트가 비었다면 -->
+        <th:block th:if="${#lists.isEmpty(boardList)}">
+          <tr>
+            <td colspan="4">등록된 게시글이 없습니다</td>
+          </tr>
+        </th:block>
+
+        <!-- 리스트에 데이터가 있다면 -->
+        <th:block th:unless="${#lists.isEmpty(boardList)}">
+          <tr th:each="board : ${boardList}">
+            <td>[[${board.boardNum}]]</td>
+            <td>
+              <a th:href="@{detail(boardNum = ${board.boardNum})}">[[${board.title}]]</a>
+            </td>
+            <td>[[${board.writer}]]</td>
+            <td>[[${#temporals.format(board.regDate, 'yyyy-MM-dd HH:mm')}]]</td>
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <span th:if="${boardDTO.prev}">
+      <a th:href="@{/boards/getList(nowPage=${boardDTO.beginPage - 1})}">이전</a>
+    </span>
+    <th:block th:each="pageNum : ${#numbers.sequence(boardDTO.beginPage, boardDTO.endPage)}">
+      <span>
+        <a th:href="@{/boards/getList(nowPage=${pageNum})}">[[${pageNum}]]</a>
+      </span>
+    </th:block>
+    <span th:if="${boardDTO.next}">
+      <a th:href="@{/boards/getList(nowPage=${boardDTO.endPage + 1})}">다음</a>
+    </span>
+  </div>
+  <div>
+    <button type="button" onclick="goWrite()">글쓰기</button>
+  </div>
+  <!-- resources/static폴더 기준으로  -->
+  <script src="/js/board_list.js"></script>
+</body>
+</html>

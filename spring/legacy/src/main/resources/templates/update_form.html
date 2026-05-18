@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/boards/update" method="post">
+    <h2>수정화면</h2>
+    <input type="hidden" name="boardNum" th:value="${board.boardNum}">
+    제목 : <input 
+      type="text"
+      name="title" 
+    ><br>
+    내용 : <textarea 
+      cols="50" 
+      rows="5"
+      name="content"  
+    >[[${board.content}]]</textarea><br>
+    <button type="submit">수정</button>
+  </form>
+</body>
+</html>
